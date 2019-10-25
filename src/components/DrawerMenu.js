@@ -12,26 +12,32 @@ export default class DrawerMenu extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
-          <View style={styles.menuItem}>
-            <TouchableOpacity>
-              <Icon name="navigate" size={30} color="#900" />
-              <Text>Lokasyon Bul</Text>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <TouchableOpacity style={styles.menuItem}>
-              <Text>Çanta Oluştur</Text>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <TouchableOpacity>
-              <Text>Aile Durumu</Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Checkpoint')}
+            style={styles.clickable}>
+            <View style={styles.menuItem}>
+              <Icon name="ios-navigate" size={40} color="#1056ea" />
+              <Text style={styles.menuItemText}>Lokasyon Bul</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('CreateBag')}
+            style={styles.clickable}>
+            <View style={styles.menuItem}>
+              <Icon name="ios-medkit" size={40} color="#1056ea" />
+              <Text style={styles.menuItemText}>Çanta Oluştur</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('FamilyStatus')}
+            style={styles.clickable}>
+            <View style={styles.menuItem}>
+              <Icon name="ios-people" size={40} color="#1056ea" />
+              <Text style={styles.menuItemText}>Ailemin Durumu</Text>
+            </View>
+          </TouchableOpacity>
         </View>
-        <View style={styles.bottom}>
-          <Text>Sidebar Bottom</Text>
-        </View>
+        <View style={styles.bottom}></View>
       </View>
     );
   }
@@ -43,11 +49,22 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 3,
     justifyContent: 'space-evenly',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     flexDirection: 'column',
+  },
+  clickable: {
+    marginHorizontal: 15,
   },
   bottom: {
     flex: 4,
   },
-  menuItem: {},
+  menuItem: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  menuItemText: {
+    marginHorizontal: 10,
+  },
 });
