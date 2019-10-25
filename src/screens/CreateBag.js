@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 
 class CreateBag extends Component {
   constructor() {
@@ -19,12 +19,9 @@ class CreateBag extends Component {
 
 const styles = StyleSheet.create({
   main: {
-    top: 0,
-    right: 0,
-    left: 0,
-    bottom: 0,
-    position: 'absolute',
-    backgroundColor: '#000A14',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
