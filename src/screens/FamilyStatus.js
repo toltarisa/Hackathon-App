@@ -1,31 +1,52 @@
-import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, { Component } from 'react'
+import { Text,StyleSheet, View, ScrollView } from 'react-native'
 
-class FamilyStatus extends Component {
-  constructor() {
-    super();
-
-    this.state = {};
-  }
-
+export default class FamilyStatus extends Component {
   render() {
     return (
-      <View style={styles.main}>
-        <Text>Family Status</Text>
+      <View>
+        <View style={styles.headView}>
+          <Text>AİLE GRUBU</Text>
+        </View>
+      <ScrollView style={styles.styleScrollView}>
+        <View style={styles.container}>
+        
+          <View style={styles.containerView}>{/*Aile ferdi 1*/}
+              <Text>ÜYE 1</Text>
+          </View>
+          
+          <View style={styles.containerView}>{/*Aile ferdi 1*/}
+            <Text>ÜYE 1</Text>
+          </View>
+          
+         <View style={styles.containerView}>{/*Aile ferdi 1*/}
+            <Text>ÜYE 1</Text>
+          </View>
+
+        </View>
+      </ScrollView>
       </View>
-    );
+    )
   }
 }
-
 const styles = StyleSheet.create({
-  main: {
-    top: 0,
-    right: 0,
-    left: 0,
-    bottom: 0,
-    position: 'absolute',
-    backgroundColor: '#000A14',
+  container:{
+    flexDirection:'column',
+    justifyContent:'center',
   },
-});
+  headView:{
+    alignItems:'center'
+  },
+  styleScrollView:{
+    padding:5
+  },
+  containerView:{
+    borderBottomWidth:1,
+    padding:15,
+    flex:1,
+    alignItems:'center'
+  },
+  styleText:{
 
-export default FamilyStatus;
+  }
+})
