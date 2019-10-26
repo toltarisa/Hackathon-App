@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const slides = [
   {
@@ -11,21 +12,51 @@ const slides = [
   },
   {
     key: 'fener',
-    title: 'fener',
+    title: 'Fener',
     image: require('../assets/fener.png'),
     backgroundColor: '#febe29',
   },
   {
     key: 'ilkyardim',
-    title: 'Ilk yardim Cantasi',
+    title: 'İlk Yardım Çantası',
     image: require('../assets/ilkyardim.png'),
     backgroundColor: '#22bcb5',
   },
   {
-    key: 'ilaç',
+    key: 'ilac',
     title: 'İlaçlar',
     image: require('../assets/ilaç.png'),
     backgroundColor: '#eb4034',
+  },
+  {
+    key: 'elbise',
+    title: 'Elbise',
+    image: require('../assets/clothe.png'),
+    backgroundColor: '#3498db',
+  },
+  {
+    key: 'pil',
+    title: 'Pil',
+    image: require('../assets/battery.png'),
+    backgroundColor: '#e67e22',
+  },
+  {
+    key: 'cakı',
+    title: 'Çakı',
+    image: require('../assets/pocketknife.png'),
+    backgroundColor: '#8e44ad',
+  },
+  {
+    key: 'duduk',
+    title: 'Düdük',
+    image: require('../assets/whistle.png'),
+    backgroundColor: '#1abc9c',
+  },
+  {
+    key: 'lighter',
+    title: 'Çakmak',
+    image: require('../assets/lighter.png'),
+    backgroundColor: '#34495e',
   },
 ];
 class CreateBag extends Component {
@@ -36,6 +67,7 @@ class CreateBag extends Component {
       showRealApp: false,
     };
   }
+
   _renderItem = ({item}) => {
     return (
       <View
@@ -46,19 +78,43 @@ class CreateBag extends Component {
           flexDirection: 'column',
           backgroundColor: item.backgroundColor,
         }}>
-        <Text style={{flex: 1}}>{item.title}</Text>
+        <TouchableOpacity
+          onPress={() => {
+            this.props.navigation.openDrawer();
+          }}
+          style={styles.menu}>
+          <Icon name="ios-menu" size={40} />
+        </TouchableOpacity>
+        <Text style={{fontSize: 25, color: '#fff'}}>{item.title}</Text>
         <Image
           style={{width: 250, height: 300, resizeMode: 'contain'}}
           source={item.image}
         />
-        <Text style={{flex: 1}}>{item.text}</Text>
+        <Text style={{fontSize: 20, color: '#fff', maxWidth: 300}}>
+          Deprem çantanda {item.title.toLowerCase()} var mı ?
+        </Text>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            marginBottom: 40,
+          }}>
+          <TouchableOpacity style={styles.buttons}>
+            <Text style={styles.btntext}>Var</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('AdsPage', slides)}
+            style={styles.buttons}>
+            <Text style={styles.btntext}>Yok</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   };
 
   _onDone = () => {
-    // User finished the introduction. Show real app through
-    // navigation or simply by controlling state
     this.setState({showRealApp: true});
   };
 
@@ -82,6 +138,25 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  buttons: {
+    marginHorizontal: 20,
+    backgroundColor: '#fff',
+    width: 120,
+    height: 40,
+    paddingTop: 10,
+    paddingLeft: 45,
+    borderRadius: 40,
+  },
+  btntext: {
+    fontSize: 15,
+  },
+  menu: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    marginHorizontal: 10,
+    marginVertical: 15,
   },
 });
 
