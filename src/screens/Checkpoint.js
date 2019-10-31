@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, ToastAndroid, BackHandler} from 'react-native';
 import Maps from '../components/Maps';
 import {
   TouchableHighlight,
@@ -19,6 +19,11 @@ class Checkpoint extends Component {
   openMap = () => {
     this.setState({mapOpen: !this.state.mapOpen});
   };
+
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', () => {return true;});
+}
+
 
   render() {
     return (

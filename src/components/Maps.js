@@ -7,8 +7,8 @@ import { TouchableHighlight } from 'react-native-gesture-handler';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyB_fGRLLKGG85LihKsTZOtw59H6y5Ku1A0';
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
-const LATITUDE = 38.449023;
-const LONGITUDE = 27.189444;
+const LATITUDE = 38.491934;
+const LONGITUDE = 27.705766;
 const LATITUDE_DELTA = 0.01;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
@@ -20,12 +20,12 @@ class Maps extends Component {
     this.state = {
       coordinates: [
         {
-          latitude: 38.449023,
-          longitude: 27.189444,
+          latitude: 38.491934,
+          longitude: 27.705766,
         },
         {
-          latitude: 38.455204,
-          longitude: 27.189960,
+          latitude: 38.492060,
+          longitude: 27.703438,
         },
       ],
     };
