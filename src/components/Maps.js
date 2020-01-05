@@ -3,8 +3,9 @@ import {StyleSheet, View, Text, Dimensions} from 'react-native';
 import MapView from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import { TouchableHighlight } from 'react-native-gesture-handler';
+import {GOOGLE_MAP_KEY as ENV_GOOGLE_MAP_KEY  } from 'react-native-dotenv'
 
-const GOOGLE_MAPS_APIKEY = 'AIzaSyB_fGRLLKGG85LihKsTZOtw59H6y5Ku1A0';
+const GOOGLE_MAPS_APIKEY = ENV_GOOGLE_MAP_KEY;
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE = 38.491934;
