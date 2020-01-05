@@ -55,7 +55,7 @@ class Checkpoint extends Component {
                 style={styles.myButton}
                 onPress={this.openMap}>
                 <Text style={styles.buttonText}>
-                  En Yakın Toplanma Alanını Bul
+                  En Yakın Toplanma Alanını Bul !
                 </Text>
               </TouchableHighlight>
             </View>
