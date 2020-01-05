@@ -8,6 +8,8 @@
 
 import React, {Component} from 'react';
 import Router from './src/Router';
+import Checkpoint from './src/screens/Checkpoint';
+
 
 class App extends Component {
   state = {};

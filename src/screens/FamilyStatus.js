@@ -18,6 +18,24 @@ export default class FamilyStatus extends Component {
     );
   };
 
+  alertFunction2 = () => {
+    Alert.alert(
+      'Kişinin alınan son konumu',
+      'Manisa Celal Bayar Üniversitesi Hasan Ferdi Turgutlu Teknoloji Fakültesi',
+      [{text: 'Haritada göster!'}, {text: ''}, {text: 'Tamam'}],
+      {cancelable: false},
+    );
+  };
+
+  alertFunction3 = () => {
+    Alert.alert(
+      'Kişinin alınan son konumu',
+      'İzmir Bornova',
+      [{text: 'Haritada göster!'}, {text: ''}, {text: 'Tamam'}],
+      {cancelable: false},
+    );
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -60,7 +78,7 @@ export default class FamilyStatus extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={this.alertFunction}
+            onPress={this.alertFunction2}
             style={styles.memberStyle}>
             <Icon
               name="ios-contact"
@@ -86,7 +104,7 @@ export default class FamilyStatus extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={this.alertFunction}
+            onPress={this.alertFunction3}
             style={styles.memberStyle}>
             <Icon
               name="ios-contact"
